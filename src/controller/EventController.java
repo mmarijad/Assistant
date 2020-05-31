@@ -115,7 +115,7 @@ public class EventController implements Initializable {
     }
 
     public void addNew(ActionEvent ev) {
-
+        datePicker.setValue(LocalDate.now());
         saveBtn.setVisible(true);
         closeBtn.setVisible(true);
         eventLbl.setText("Novi događaj");
@@ -187,6 +187,7 @@ public class EventController implements Initializable {
         try {
             e.save();
             this.populateTableView();
+            this.populateUpcomingTableView();
         } catch (Exception ex) {
             ex.printStackTrace();
            errorLbl.setText("Došlo je do pogreške: dodavanje novog događaja nije uspjelo.");
